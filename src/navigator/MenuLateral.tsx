@@ -5,7 +5,9 @@ import { DrawerContentComponentProps, DrawerContentScrollView, createDrawerNavig
 import { SettingsScreen } from '../screens/SettingsScreen';
 import { StackNavigator } from './StackNavigator';
 
-import { styles } from '../theme/appTheme';
+import { colors, styles } from '../theme/appTheme';
+import { Tabs } from './Tabs';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const Drawer = createDrawerNavigator();
 
@@ -22,7 +24,7 @@ export const MenuLateral = ()  => {
     }}
     drawerContent={(props) => <MenuInternal {...props}/>}
     >
-      <Drawer.Screen name="StackNavigator" component={StackNavigator} />
+      <Drawer.Screen name="Tabs" component={Tabs} />
       <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
     </Drawer.Navigator>
   );
@@ -46,15 +48,15 @@ const MenuInternal = ({navigation}: DrawerContentComponentProps) => {
 
                 <TouchableOpacity 
                     style={styles.menuButton}
-                    onPress={() => navigation.navigate('StackNavigator')}
+                    onPress={() => navigation.navigate('Tabs')}
                 >
-                    <Text style={styles.menuTexto}>Navigator Stack</Text>
+                    <Icon name="rocket-outline" size={25} color={colors.primary} /><Text style={styles.menuTexto}>Navigator Stack</Text>
                 </TouchableOpacity>
                 <TouchableOpacity 
                     style={styles.menuButton}
                     onPress={() => navigation.navigate('SettingsScreen')}
                 >
-                    <Text style={styles.menuTexto}>Settings</Text>
+                    <Icon name="chevron-up-circle-outline" size={25} color={colors.primary} /><Text style={styles.menuTexto}>Settings</Text>
                 </TouchableOpacity>
 
             </View>

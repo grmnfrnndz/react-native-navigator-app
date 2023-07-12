@@ -3,8 +3,11 @@ import { Button, Text, View } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack';
 import { DrawerScreenProps } from '@react-navigation/drawer';
 
-import { styles } from '../theme/appTheme';
+import Icon from 'react-native-vector-icons/Ionicons';
+
+import { colors, styles } from '../theme/appTheme';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+
 
 
 
@@ -15,9 +18,22 @@ interface Props extends DrawerScreenProps<any, any> {};
 export const PageOneScreen = ({navigation}: Props) => {
 
 
+    const navagate = () => {
+        return (
+            <TouchableOpacity 
+                    style={{...styles.menuButton, marginLeft: 10}}
+                    onPress={() => navigation.toggleDrawer()}
+                >
+                    <Icon name="rocket-outline" size={25} color={colors.primary} /><Text style={styles.menuTexto}>Menu</Text>
+                </TouchableOpacity>
+        )
+    }
+
+
     useEffect(()=> {
         navigation.setOptions({
-            headerLeft: () => <Button title='Menu' onPress={() => navigation.toggleDrawer()}/>
+            // headerLeft: () => <Button title='Menu' onPress={() => navigation.toggleDrawer()}/>
+            headerLeft: navagate
         });
     }, [])
 
@@ -42,13 +58,13 @@ export const PageOneScreen = ({navigation}: Props) => {
                 <TouchableOpacity style={{...styles.buttonBig, backgroundColor: 'blue'}}
                     onPress={() => navigation.navigate('personScreen', {id: 1, name: 'GERMANDEVOPS'})}
                 >
-                    <Text style={styles.buttonBigText}>Person GERMAN DEV OPS</Text>
+                    <Icon name="car-sport-outline" size={25} color={colors.primary} /><Text style={styles.buttonBigText}>GERMAN DEV OPS</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity style={{...styles.buttonBig, backgroundColor: 'green'}}
                     onPress={() => navigation.navigate('personScreen', {id: 2, name: 'KAIRON'})}
                 >
-                    <Text style={styles.buttonBigText}>Person KAIRON</Text>
+                    <Icon name="logo-electron" size={25} color={colors.primary} /><Text style={styles.buttonBigText}>KAIRON</Text>
                 </TouchableOpacity>
 
             </View>
