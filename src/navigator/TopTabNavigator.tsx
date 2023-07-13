@@ -10,6 +10,7 @@ import { AlbumsScreen } from '../screens/AlbumsScreen';
 
 import { colors, styles } from '../theme/appTheme';
 import { Text } from 'react-native-paper';
+import { ElevationLevels } from 'react-native-paper/lib/typescript/src/types';
 
 
 
@@ -21,18 +22,16 @@ export const TopTabNavigator = () => {
 
     return (
         <Tab.Navigator
-        
+          
           sceneContainerStyle={{
             backgroundColor: 'white',
-            
-
           }}
           screenOptions={ ({route}) => ({
             tabBarPressColor: colors.primary,
             tabBarShowIcon: true,
             tabBarActiveTintColor: colors.primary,
             tabBarIndicatorStyle: {
-              backgroundColor: colors.primary
+              backgroundColor: colors.primary, 
             },
             tabBarStyle: {
               backgroundColor: 'white',
@@ -45,7 +44,7 @@ export const TopTabNavigator = () => {
             },
             tabBarLabelStyle: {
               fontSize: 12,
-              
+
             },
             tabBarIcon: ({color, focused}) => {
 

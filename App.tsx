@@ -6,16 +6,29 @@ import { NavigationContainer } from '@react-navigation/native';
 // import { MenuLateralBasic } from './src/navigator/MenuLateralBasic';
 import { MenuLateral } from './src/navigator/MenuLateral';
 import { Tabs } from './src/navigator/Tabs';
+import { AuthProvider } from './src/context/AuthContext';
 
 const App = () => {
     return (
         <NavigationContainer>
-            {/* <StackNavigator/> */}
-            {/* <MenuLateralBasic/> */}
-            <MenuLateral/>
-            {/* <Tabs/> */}
+            <AppState>
+                {/* <StackNavigator/> */}
+                {/* <MenuLateralBasic/> */}
+                <MenuLateral/>
+                {/* <Tabs/> */}
+            </AppState>
         </NavigationContainer>
     )
 }
+
+
+const AppState = ({children}: any) => {
+    return (
+        <AuthProvider>
+            {children}
+        </AuthProvider>
+    )
+}
+
 
 export default App;

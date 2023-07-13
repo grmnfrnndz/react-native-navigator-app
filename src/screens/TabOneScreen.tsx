@@ -3,16 +3,12 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { Text, View } from 'react-native';
 import { colors, styles } from '../theme/appTheme';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { TouchableIcon } from '../components/TouchableIcon';
 
 
 
 export const TabOneScreen = () => {
     const {top} = useSafeAreaInsets();
-
-    useEffect(() => {
-        console.log('TabOneScreen');
-    }, []);
-    
 
     return (
         <View style={{
@@ -24,14 +20,14 @@ export const TabOneScreen = () => {
                 Icons
             </Text>
             <Text>
-            <Icon name="rocket-outline" size={80} color={colors.primary} />
-            <Icon name="albums-outline" size={80} color={colors.primary} />
-            <Icon name="chatbubbles-outline" size={80} color={colors.primary} />
-            <Icon name="person-outline" size={80} color={colors.primary} />
-            <Icon name="chevron-up-circle-outline" size={80} color={colors.primary} />
-            <Icon name="airplane-outline" size={80} color={colors.primary} />
-            <Icon name="fast-food-outline" size={80} color={colors.primary} />
-            <Icon name="musical-notes-outline" size={80} color={colors.primary} />
+            <TouchableIcon iconName="rocket-outline"/>
+            <TouchableIcon iconName="albums-outline"/>
+            <TouchableIcon iconName="chatbubbles-outline"/>
+            <TouchableIcon iconName="person-outline"/>
+            <TouchableIcon iconName="chevron-up-circle-outline"/>
+            <TouchableIcon iconName="airplane-outline"/>
+            <TouchableIcon iconName="fast-food-outline"/>
+            <TouchableIcon iconName="musical-notes-outline"/>
             </Text>
         </View>
     )
